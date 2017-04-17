@@ -41,7 +41,7 @@
         console.log(results);
         // heart.innerHTML = results.heartrate;
         const bpm = parseInt(results.heartrate);
-        const aLength = 60 / bpm;
+        const aLength = (60 / bpm) /2;
         heart.style.animation = `pounding ${aLength}s linear infinite alternate`;
       });
 
