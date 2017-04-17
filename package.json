@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node app.js"
+    "dev": "node app.js",
+    "postinstall": "node lib/batch.js"
   },
   "author": "Suz Hinton",
   "license": "MIT",
