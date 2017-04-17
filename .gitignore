@@ -1,0 +1,5 @@
+config.js
+node_modules
+.DS_Store
+fitbitdb
+.env

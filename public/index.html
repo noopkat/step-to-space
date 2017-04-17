@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>step to space</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">     
+    <link rel="stylesheet" href="/css/main.css"/>
+  </head>
+  <body >
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <p id="sentence">Completed 
+      <span id="laps"></span> laps to the Space Station, for a total of 
+      <span id="dist"></span>
+    </p>
+    <div id="heartContainer">
+      <div class="heart" id="heart2"></div>
+    </div>
+
+    <script type="text/javascript">
+      const dist = document.getElementById('dist');
+      const laps = document.getElementById('laps');
+      const heart = document.getElementById('heart2');
+
+      const spaceStationDistance = 320;
+      
+
+      fetch('/api/distance')
+      .then((response) => response.json())
+      .then((results) => {
+        console.log(results);
+        const totalDistance = parseInt(results.distance);
+        dist.innerHTML = `${totalDistance}km`;
+        const numLaps = Math.floor(totalDistance / spaceStationDistance);
+        laps.innerHTML = numLaps;
+      });
+
+      fetch('/api/heart')
+      .then((response) => response.json())
+      .then(function(results) {
+        console.log(results);
+        // heart.innerHTML = results.heartrate;
+        const bpm = parseInt(results.heartrate);
+        const aLength = 60 / bpm;
+        heart.style.animation = `pounding ${aLength}s linear infinite alternate`;
+      });
+
+    </script>
+   
+  </body>
+</html>

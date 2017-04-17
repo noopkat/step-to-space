@@ -1,0 +1,117 @@
+body {
+  height: 100%;
+  background-repeat: no-repeat;
+  background: linear-gradient(to bottom, #000 50%,#2d2d3f 100%) fixed;
+  color: #fff;
+  font-size: 40px;
+}
+
+/* 
+stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu 
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkling {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:40%;
+  display:block;
+  overflow: hidden;
+}
+
+.stars {
+  background:#000 url(/images/stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling {
+  background:transparent url(/images/twinkling.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+#sentence {
+  position: absolute;
+  top: 100px;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  font-family:  'PT Sans', sans-serif;
+}
+
+#heartContainer {
+    position: absolute;
+  top: 300px;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  transform: scale(0.6);
+}
+
+/* heart beat code from http://codepen.io/valentin/pen/sfnCE */
+
+.heart {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  margin-top: -45px;
+  margin-left: -50px;
+}
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #fc2e5a;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin :100% 100%;
+}
+
+#heart2 {
+   /*animation: pounding .5s linear infinite alternate;*/
+}
+
+@keyframes pounding{
+  0%{ transform: scale(1.5); }
+  100%{ transform: scale(1); }
+}
