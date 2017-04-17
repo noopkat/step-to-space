@@ -61,7 +61,7 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
 
 #sentence {
   position: absolute;
-  top: 100px;
+  top: 400px;
   z-index: 100;
   width: 100%;
   text-align: center;
@@ -69,12 +69,21 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
 }
 
 #heartContainer {
-    position: absolute;
-  top: 300px;
+  position: absolute;
+  top: 550px;
   z-index: 100;
   width: 100%;
   text-align: center;
   transform: scale(0.6);
+}
+
+#drawing {
+  position: absolute;
+  top: 100px;
+  z-index: 200;
+  width: 100%;
+  text-align: center;
+  display:block;
 }
 
 /* heart beat code from http://codepen.io/valentin/pen/sfnCE */

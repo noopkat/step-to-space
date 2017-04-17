@@ -13,13 +13,6 @@ const sched = schedule.scheduleJob('50 4 * *', () => {
     });
 });
 
-fitbit.refreshTokens()
-    .then((results) => fitbit.getLifetimeDistance(results))
-    .then((distance) => fitbit.storeLifetimeDistance(distance))
-    .catch(function(error) {
-      console.log('error:', error);
-    });
-
 const checkHeart = setInterval(() => {
   fitbit.refreshTokens()
    .then((results) => fitbit.getCurrentHeartRate(results))
