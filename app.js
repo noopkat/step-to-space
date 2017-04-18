@@ -4,14 +4,14 @@ const schedule = require('node-schedule');
 const fitbit = require('./lib/fitbit');
 const Hapi = require('hapi');
 
-const sched = schedule.scheduleJob('50 4 * *', () => {
+const updateLifetimeDistance = () => {
   fitbit.refreshTokens()
     .then((results) => fitbit.getLifetimeDistance(results))
     .then((distance) => fitbit.storeLifetimeDistance(distance))
     .catch(function(error) {
       console.log('error:', error);
     });
-});
+};
 
 const checkHeart = setInterval(() => {
   fitbit.refreshTokens()
@@ -21,6 +21,12 @@ const checkHeart = setInterval(() => {
       console.log('error:', error);
     });
 }, 5 * 60 * 1000);
+
+const sched = schedule.scheduleJob('50 4 * *', () => {
+  updateLifetimeDistance();
+});
+
+updateLifetimeDistance();
 
 const server = new Hapi.Server();
 server.connection({ 
@@ -43,6 +49,14 @@ server.register(require('inert'), (err) => {
     path:'/css/{file}', 
     handler: function (request, reply) {
       return reply.file(`./public/css/${request.params.file}`);
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path:'/js/{file}', 
+    handler: function (request, reply) {
+      return reply.file(`./public/js/${request.params.file}`);
     }
   });
 
