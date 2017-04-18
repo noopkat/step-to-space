@@ -6,19 +6,17 @@ const spaceStationDistance = 320;
 
 fetch('/api/distance')
   .then((response: any) => response.json())
-  .then((results: any) => {
-    console.log(results);
-    const totalDistance = parseInt(results.distance);
-    dist.innerHTML = `${totalDistance}km`;
-    const numLaps = Math.floor(totalDistance / spaceStationDistance);
+  .then(({ distance }) => {
+    console.log(distance);
+    dist.innerHTML = `${Math.floor(distance)}km`;
+    const numLaps = Math.floor(distance / spaceStationDistance);
     laps.innerHTML = numLaps.toString();
   });
 
 fetch('/api/heart')
   .then((response: any) => response.json())
-  .then((results: any) => {
-    console.log(results);
-    const bpm = parseInt(results.heartrate);
-    const aLength = (60 / bpm) /2;
+  .then(({ heartrate }) => {
+    console.log(heartrate);
+    const aLength = (60 / heartrate) /2;
     heart.style.animation = `pounding ${aLength}s linear infinite alternate`;
   });
