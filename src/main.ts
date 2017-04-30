@@ -8,7 +8,7 @@ fetch('/api/distance')
   .then((response: any) => response.json())
   .then(({ distance }) => {
     console.log(distance);
-    dist.innerHTML = `${Math.floor(distance)}km`;
+    dist.innerHTML = `${distance}km`;
     const numLaps = Math.floor(distance / spaceStationDistance);
     laps.innerHTML = numLaps.toString();
   });
