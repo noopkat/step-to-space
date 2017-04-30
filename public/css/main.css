@@ -65,7 +65,7 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   z-index: 100;
   width: 100%;
   text-align: center;
-  font-family:  'PT Sans', sans-serif;
+  font-family: 'Changa', sans-serif;
 }
 
 #heartContainer {
@@ -114,10 +114,6 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   left: 0;
   transform: rotate(45deg);
   transform-origin :100% 100%;
-}
-
-#heart2 {
-   /*animation: pounding .5s linear infinite alternate;*/
 }
 
 @keyframes pounding{
