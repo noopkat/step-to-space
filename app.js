@@ -5,10 +5,10 @@ const fitbit = require('./lib/fitbit');
 const Hapi = require('hapi');
 const routes = require('./lib/routes');
 
-const checkHeart = setInterval(fitbit.updateHeartrate, 5 * 60 * 1000);
+// const checkHeart = setInterval(fitbit.updateHeartrate, 5 * 60 * 1000);
 const sched = schedule.scheduleJob('50 4 * *', fitbit.updateLifetimeDistance);
 
-fitbit.updateLifetimeDistance();
+// fitbit.updateLifetimeDistance();
 
 const server = new Hapi.Server();
 server.connection({ 
