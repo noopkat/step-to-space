@@ -16,7 +16,6 @@
     "fitbit-node": "^2.0.5",
     "hapi": "^16.1.1",
     "inert": "^4.2.0",
-    "node-schedule": "^1.2.1",
     "typescript": "^2.2.2"
   }
 }
