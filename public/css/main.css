@@ -165,8 +165,8 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   display: none;
 }
 
-#astronautContainer:not(.flip):hover > #parcelContainer,
-#astronautContainer:not(.flip):focus > #parcelContainer {
+#astronautContainer:not(.facingEarth):hover > #parcelContainer,
+#astronautContainer:not(.facingEarth):focus > #parcelContainer {
   display: block;
 }
 
@@ -178,7 +178,7 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   border: 1px solid #00ff00;
 }
 
-#astronautContainer.flip > #astronaut {
+#astronautContainer.facingEarth > #astronaut {
   transform: rotateY(180deg);
 }
 

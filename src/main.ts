@@ -27,7 +27,7 @@
       const lapRemainder = distance % spaceStationDistance;
       const lapProgress = lapRemainder / spaceStationDistance;
       const position = (lapProgress > .5) ? pixelSpaceStationDistance - ((lapProgress - .5) * pixelSpaceStationDistance * 2) : lapProgress * pixelSpaceStationDistance * 2;
-      const classname = (lapProgress > .5) ? 'flip' : '';
+      const classname = (lapProgress > .5) ? 'facingEarth' : '';
       const progress = Math.floor(lapProgress * 100);
 
       console.log(`remainder: ${lapRemainder} progress: ${lapProgress}`);
