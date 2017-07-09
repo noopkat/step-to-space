@@ -129,6 +129,10 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   z-index: 999;
   border-bottom: 1px dashed #fff;
   height: 75px;
+  color: white;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 #astronautContainer {
@@ -151,7 +155,6 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   font-size: 18px;
   color: white;
   text-align: center;
-  font-family: sans-serif;
   border: 1px solid #ff0000;
 }
 
@@ -176,6 +179,14 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   height: 50px;
   width: 50px;
   border: 1px solid #00ff00;
+}
+
+#earth {
+  position: absolute;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ead027;
 }
 
 #astronautContainer.facingEarth > #astronaut {
