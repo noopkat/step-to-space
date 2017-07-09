@@ -3,7 +3,9 @@
   const laps: HTMLElement = document.getElementById('laps');
   const heart: HTMLElement = document.getElementById('heart2');
   const astronaut: HTMLElement = document.getElementById('astronaut');
+  const astronautContainer: HTMLElement = document.getElementById('astronautContainer');
   const iss: HTMLElement = document.getElementById('iss');
+  const parcelContainer: HTMLElement = document.getElementById('parcelContainer');
 
   const spaceStationDistance = 640; // doubled for one 'lap'
   const pixelSpaceStationDistance = 700;
@@ -14,6 +16,7 @@
     position: number;
     progress: number;
     classname: string;
+    containerClassname: string;
   };
 
   const calculateAstronaut = function(distance: number) {
@@ -26,16 +29,17 @@
       const lapProgress = lapRemainder / spaceStationDistance;
       const position = (lapProgress > .5) ? pixelSpaceStationDistance - ((lapProgress - .5) * pixelSpaceStationDistance * 2) : lapProgress * pixelSpaceStationDistance * 2;
       const classname = (lapProgress > .5) ? 'flip' : '';
+      const containerClassname = (lapProgress > .5) ? '' : 'parcel';
       const progress = Math.floor(lapProgress * 100);
 
       console.log(`remainder: ${lapRemainder} progress: ${lapProgress}`);
 
-      return resolve({distance, numlaps, position, progress, classname});
+      return resolve({distance, numlaps, position, progress, classname, containerClassname});
     });
   }
 
   const updateAstronaut = function(data: astrodata) {
-    const {distance, numlaps, position, progress, classname} = data;
+    const {distance, numlaps, position, progress, classname, containerClassname} = data;
 
     // update sentence UI
     dist.textContent = `${distance}km`;
@@ -43,9 +47,10 @@
 
     // update astronaut UI
     astronaut.className = classname;
-    astronaut.style.left = `${position}px`;
+    astronautContainer.className = containerClassname;
+    astronautContainer.style.left = `${position}px`;
     astronaut.textContent =  `astro ${progress}%`;
-    astronaut.style.opacity = '1';
+    astronautContainer.style.opacity = '1';
   };
 
   const updateHeart = function(heartrate: number) {
@@ -53,6 +58,7 @@
     const aLength = (60 / heartrate) / 2;
     heart.style.animation = `pounding ${aLength}s linear infinite alternate`;
   };
+
 
   // for debugging
   // let i = 0;
@@ -63,7 +69,7 @@
 
   fetch('/api/distance')
     .then((response: any) => response.json())
-    .then(({ distance }) => calculateAstronaut(distance))
+    .then(({ distance }) => calculateAstronaut(250))
     .then((data: astrodata) => updateAstronaut(data)); 
 
   fetch('/api/heart')
