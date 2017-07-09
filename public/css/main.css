@@ -144,7 +144,9 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   margin: 0;
   opacity: 0;
   background: none;
+  color: white;
   border: none;
+  font-size: 18px;
 }
 
 #astronaut {
@@ -152,8 +154,6 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   left: 0px;
   height: 50px;
   width: 50px;
-  font-size: 18px;
-  color: white;
   text-align: center;
   border: 1px solid #ff0000;
 }
