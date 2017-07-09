@@ -16,7 +16,6 @@
     position: number;
     progress: number;
     classname: string;
-    containerClassname: string;
   };
 
   const calculateAstronaut = function(distance: number) {
@@ -29,17 +28,16 @@
       const lapProgress = lapRemainder / spaceStationDistance;
       const position = (lapProgress > .5) ? pixelSpaceStationDistance - ((lapProgress - .5) * pixelSpaceStationDistance * 2) : lapProgress * pixelSpaceStationDistance * 2;
       const classname = (lapProgress > .5) ? 'flip' : '';
-      const containerClassname = (lapProgress > .5) ? '' : 'parcel';
       const progress = Math.floor(lapProgress * 100);
 
       console.log(`remainder: ${lapRemainder} progress: ${lapProgress}`);
 
-      return resolve({distance, numlaps, position, progress, classname, containerClassname});
+      return resolve({distance, numlaps, position, progress, classname});
     });
   }
 
   const updateAstronaut = function(data: astrodata) {
-    const {distance, numlaps, position, progress, classname, containerClassname} = data;
+    const {distance, numlaps, position, progress, classname} = data;
 
     // update sentence UI
     dist.textContent = `${distance}km`;
@@ -47,7 +45,7 @@
 
     // update astronaut UI
     astronaut.className = classname;
-    astronautContainer.className = containerClassname;
+    astronautContainer.className = classname;
     astronautContainer.style.left = `${position}px`;
     astronaut.textContent =  `astro ${progress}%`;
     astronautContainer.style.opacity = '1';
