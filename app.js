@@ -1,13 +1,7 @@
 require('dotenv').config();
 
-const fitbit = require('./lib/fitbit');
 const Hapi = require('hapi');
 const routes = require('./lib/routes');
-
-//const checkHeart = setInterval(fitbit.updateHeartrate, 5 * 60 * 1000);
-//const checkDistance = setInterval(fitbit.updateLifetimeDistance, 7 * 60 * 1000);
-
-//fitbit.updateLifetimeDistance();
 
 const server = new Hapi.Server();
 server.connection({ 
