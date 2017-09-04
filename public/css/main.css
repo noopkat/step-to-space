@@ -120,3 +120,44 @@ stars from this codepen: https://codepen.io/WebSonick/pen/vjmgu
   0%{ transform: scale(1.5); }
   100%{ transform: scale(1); }
 }
+
+
+/* Earth view  */
+.tellus {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 100px;
+  left: -50px;
+  z-index: 1;
+}
+
+.stroke {
+  fill: none;
+  opacity: .1;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: rgba(0, 17, 85, 0.05);
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #999;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  opacity: .5;
+  stroke-width: .3px;
+}
+/* end of the earth ..view */
