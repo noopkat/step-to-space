@@ -11,11 +11,13 @@
   "author": "Suz Hinton",
   "license": "MIT",
   "dependencies": {
-    "azure-storage": "^2.1.0",
+    "azure-storage": "^2.4.0",
+    "cheerio": "^1.0.0-rc.2",
+    "define": "^1.0.1",
     "dotenv": "^4.0.0",
     "fitbit-node": "^2.0.5",
-    "hapi": "^16.1.1",
-    "inert": "^4.2.0",
+    "hapi": "^16.5.2",
+    "inert": "^4.2.1",
     "typescript": "^2.2.2",
     "whatwg-fetch": "^2.0.3"
   }

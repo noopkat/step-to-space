@@ -22,9 +22,22 @@
       <div class="heart" id="heart2"></div>
     </div>
 
+    <div id="worldContainer" class="tellus" >
+    </div>
+
     <script type="text/javascript" src="/js/fetch.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
-    
-   
+    <script> 
+      var ISS_latitiude = 0;  
+      var ISS_longitiude =0;
+      var ISS_TLE_1 ='';
+      var ISS_TLE_2 ='';
+    </script> <!-- We need these to be global -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script type="text/javascript" src="/js/satellite.min.js"></script>
+    <script type="text/javascript" src="/js/globe.js"></script>
+
+
   </body>
 </html>
